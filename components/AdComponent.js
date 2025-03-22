@@ -5,8 +5,13 @@ export class AdComponent extends HTMLElement {
   }
 
   connectedCallback() {
+    const width = this.getAttribute('data-width').trim();
+    const height = this.getAttribute('data-height').trim();
+
     this.shadowRoot.innerHTML = `
-          AdComponent
+        <link rel="stylesheet" href="/components/AdComponent.css">
+        
+        <img src="https://picsum.photos/${width}/${height}" alt="Test img"> 
     `;
   }
 }
