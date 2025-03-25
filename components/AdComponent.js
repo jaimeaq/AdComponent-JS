@@ -47,7 +47,7 @@ export class AdComponent extends HTMLElement {
       this.shadowRoot.appendChild(img);
     });
 
-    img.addEventListener('load', () => {
+    img.addEventListener('error', () => {
       console.error('Error: Failed to load image.');
       this.shadowRoot.innerHTML = `
         <style>
@@ -65,6 +65,6 @@ export class AdComponent extends HTMLElement {
       `;
     });
 
-    img.src = `https://picsum.photos/${width}/${height}.png`;
+    img.src = `https://picsum.photos/${width}/${height}`;
   }
 }
