@@ -3,10 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Wireframe - News Site with Ads</title>
     <script type="module" src="index.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .wireframe-label {
+            background-color: rgba(0,0,0,0.1);
+            color: #555;
+            text-align: center;
+            font-size: 12px;
+            padding: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        header {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo-placeholder {
+            width: 180px;
+            height: 40px;
+            background-color: #ccc;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #d8d8d8;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-item {
+            width: 80px;
+            height: 20px;
+            background-color: #bbb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        .sidebar {
+            width: 160px;
+        }
+
+        .sidebar-element {
+            height: 40px;
+            background-color: #ddd;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .headline {
+            height: 30px;
+            background-color: #ddd;
+            width: 80%;
+            margin-bottom: 15px;
+        }
+
+        .subheadline {
+            height: 24px;
+            background-color: #ddd;
+            width: 60%;
+            margin-bottom: 10px;
+        }
+
+        .text-block {
+            height: 14px;
+            background-color: #eee;
+            margin-bottom: 8px;
+        }
+
+        .text-block.last {
+            width: 75%;
+        }
+
+        .article {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ad-container-skyscraper {
+            border: 2px dashed #999;
+            background-color: #f9f9f9;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .ad-container-banner {
+            border: 2px dashed #999;
+            background-color: #f9f9f9;
+            padding: 5px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0e0e0;
+            border-top: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            width: 22%;
+        }
+
+        .footer-heading {
+            height: 20px;
+            background-color: #ccc;
+            margin-bottom: 10px;
+            width: 70%;
+        }
+
+        .footer-item {
+            height: 12px;
+            background-color: #ddd;
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            height: 14px;
+            background-color: #ccc;
+            width: 200px;
+            margin: 20px auto 0;
+        }
+    </style>
 </head>
 <body>
-    <ad-component width="160" height="600"></ad-component>
+<header>
+    <div class="logo-placeholder"></div>
+</header>
+
+<nav>
+    <div class="nav-items">
+        <div class="nav-item"></div>
+        <div class="nav-item"></div>
+        <div class="nav-item"></div>
+        <div class="nav-item"></div>
+        <div class="nav-item"></div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="sidebar">
+        <!-- Sidebar wireframe elements -->
+        <div class="sidebar-element"></div>
+        <div class="sidebar-element"></div>
+
+        <!-- Skyscraper Ad: 160x600 -->
+        <div class="ad-container-skyscraper">
+            <div class="wireframe-label">AD: 160×600</div>
+            <ad-component width="160" height="600"></ad-component>
+        </div>
+
+        <div class="sidebar-element"></div>
+    </div>
+
+    <div class="content">
+        <div class="article">
+            <div class="headline"></div>
+            <div class="text-block"></div>
+            <div class="text-block"></div>
+            <div class="text-block last"></div>
+        </div>
+
+        <!-- Banner Ad: 728x90 -->
+        <div class="ad-container-banner">
+            <div>
+                <div class="wireframe-label">AD: 728×90</div>
+                <ad-component width="728" height="90"></ad-component>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="headline"></div>
+            <div class="subheadline"></div>
+            <div class="text-block"></div>
+            <div class="text-block"></div>
+            <div class="text-block"></div>
+            <div class="text-block last"></div>
+        </div>
+
+        <div class="article">
+            <div class="headline"></div>
+            <div class="text-block"></div>
+            <div class="text-block"></div>
+            <div class="text-block last"></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="footer-heading"></div>
+            <div class="footer-item"></div>
+            <div class="footer-item"></div>
+            <div class="footer-item"></div>
+        </div>
+        <div class="footer-section">
+            <div class="footer-heading"></div>
+            <div class="footer-item"></div>
+            <div class="footer-item"></div>
+            <div class="footer-item"></div>
+        </div>
+        <div class="footer-section">
+            <div class="footer-heading"></div>
+            <div class="footer-item"></div>
+            <div class="footer-item"></div>
+        </div>
+        <div class="footer-section">
+            <div class="footer-heading"></div>
+            <div class="footer-item"></div>
+            <div class="footer-item"></div>
+            <div class="footer-item"></div>
+        </div>
+    </div>
+    <div class="copyright"></div>
+</footer>
 </body>
 </html>

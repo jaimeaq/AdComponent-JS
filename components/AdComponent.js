@@ -40,7 +40,7 @@ export class AdComponent extends HTMLElement {
         return response.json();
       })
       .then(data => {
-        const imageUrl = data.body.url;
+        const imageUrl = data.url;
 
         const img = document.createElement('img');
         img.alt = "Advertisement";
