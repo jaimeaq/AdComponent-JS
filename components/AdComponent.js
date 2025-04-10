@@ -5,9 +5,9 @@ export class AdComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    const width = this.getAttribute('width').trim() || 0;
-    const height = this.getAttribute('height').trim() || 0;
-    const location = this.getAttribute('location').trim() || 'unknown';
+    const width = this.getAttribute('width') ? this.getAttribute('width') : 0;
+    const height = this.getAttribute('height') ? this.getAttribute('height') : 0;
+    const location = this.getAttribute('location') ? this.getAttribute('location') : 'unknown';
 
     if (width <= 0 || height <= 0) {
       console.error('Error: AdComponent requires both width and height.');
