@@ -7,6 +7,7 @@ export class AdComponent extends HTMLElement {
   connectedCallback() {
     const width = this.getAttribute('width').trim() || 0;
     const height = this.getAttribute('height').trim() || 0;
+    const location = this.getAttribute('location').trim() || 'unknown';
 
     if (width <= 0 || height <= 0) {
       console.error('Error: AdComponent requires both width and height.');
@@ -55,6 +56,7 @@ export class AdComponent extends HTMLElement {
             </style>
           `;
           this.shadowRoot.appendChild(img);
+          this.trackImpression(imageUrl, width, height, location);
         });
 
         img.addEventListener('error', () => {
@@ -94,5 +96,39 @@ export class AdComponent extends HTMLElement {
           <div class="error">Failed to fetch advertisement</div>
         `;
       });
+  }
+
+  trackImpression(imageUrl, width, height, location) {
+    const impressionEvent = {
+      eventType: 'impression',
+      timeStamp: new Date().toISOString(),
+      adData: {
+        url: imageUrl,
+        width: width,
+        height: height,
+        location: location
+      },
+      pageInfo: {
+        url: window.location.href,
+        referrer: document.referrer || null
+      }
+    };
+
+    fetch('http://localhost:8080/api/analytics/impression', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(impressionEvent)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Analytics error! Status: ${response.status}`);
+      }
+      console.log('Impression tracked successfully');
+    })
+    .catch(error => {
+      console.warn('Failed to track impression:', error);
+    });
   }
 }
