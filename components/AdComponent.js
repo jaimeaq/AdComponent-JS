@@ -101,7 +101,7 @@ export class AdComponent extends HTMLElement {
   trackImpression(imageUrl, width, height, location) {
     const impressionEvent = {
       eventType: 'impression',
-      timeStamp: new Date().toISOString(),
+      timestamp: new Date().toISOString(),
       adData: {
         url: imageUrl,
         width: width,
@@ -113,6 +113,8 @@ export class AdComponent extends HTMLElement {
         referrer: document.referrer || null
       }
     };
+
+    console.log(impressionEvent);
 
     fetch('http://localhost:8080/api/analytics/impression', {
       method: 'POST',
